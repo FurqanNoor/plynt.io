@@ -7,7 +7,6 @@ export default function Home() {
   return (
     <>
       <main className={inter.className}>
-        <Navbar />
         <Hero />
       </main>
     </>

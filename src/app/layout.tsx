@@ -1,7 +1,9 @@
 import { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter } from 'next/font/google';
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
+import Navbar from "@/components/Navbar";
+
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -55,12 +57,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} container max-w-7xl mx-auto min-h-screen flex flex-col px-4 py-5`}
-    >
-      <head></head>
-      <body>{children}</body>
+    <html lang="en" className={`${inter.variable}`}>
+      <body className="bg-black text-white">
+        <Navbar />
+        <main className="min-h-screen">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
+
