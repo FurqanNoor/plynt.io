@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} container max-w-2xl mx-auto min-h-screen flex flex-col px-4 py-5`}
+      className={`${inter.variable} container max-w-7xl mx-auto min-h-screen flex flex-col px-4 py-5`}
     >
       <head></head>
       <body>{children}</body>
