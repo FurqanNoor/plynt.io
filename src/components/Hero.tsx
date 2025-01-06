@@ -18,10 +18,10 @@ export default function Hero() {
             <span className="block text-purple-500">Together</span>
           </h1>
           <p className="text-lg text-white max-w-2xl mx-auto mb-8 sm:mb-10">
-            Plynt is more than just a habit tracker. It's a community-driven
+            Plynt is more than just a habit tracker. It&#39;s a community-driven
             platform that turns personal growth into a shared journey. Build
             habits, connect with like-minded individuals, and celebrate each
-            other's progress.
+            other&#39;s progress.
           </p>
           <div className="flex justify-center">
             <Button
