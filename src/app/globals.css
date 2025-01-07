@@ -59,14 +59,20 @@
   }
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+  overflow: auto;
 }
 
 @layer base {

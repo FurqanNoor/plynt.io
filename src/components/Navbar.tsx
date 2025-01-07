@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   return (
@@ -10,29 +10,28 @@ export default function Navbar() {
             plynt
           </Link>
           <nav className="flex items-center gap-4">
-            <Link 
-              href="/pricing" 
-              className="text-sm text-gray-400 hover:text-white transition-colors"
+            <Link
+              href="/pricing"
+              className="text-sm text-gray-400 hover:text-purple-300 transition-colors"
             >
               Pricing
             </Link>
-            <Button 
-              variant="ghost" 
-              className="text-gray-400 hover:text-white hover:bg-gray-800"
-              asChild
+
+            <Link
+              href="/login"
+              className="text-sm text-gray-400 hover:text-purple-300 transition-colors"
             >
-              <Link href="/login">Login</Link>
-            </Button>
-            <Button 
-              className="bg-white text-black hover:bg-gray-100"
-              asChild
+              Login
+            </Link>
+            <Link
+              href="/signup"
+              className="text-sm text-gray-400 hover:text-purple-300 transition-colors"
             >
-              <Link href="/signup">Sign up</Link>
-            </Button>
+              Sign Up
+            </Link>
           </nav>
         </div>
       </div>
     </header>
-  )
+  );
 }
-
