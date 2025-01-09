@@ -88,7 +88,7 @@ export function AuthModal({ isOpen, onClose, mode }: AuthModalProps) {
                 }}
                 className="text-blue-500 hover:text-blue-400"
               >
-                Don't have an account? Sign up
+                Don&#39;t have an account? Sign up
               </button>
             ) : (
               <button
