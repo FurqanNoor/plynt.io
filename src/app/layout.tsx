@@ -1,10 +1,10 @@
 import { Metadata } from "next";
-import { Inter } from 'next/font/google';
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
+import { Providers } from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -60,13 +60,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable}`}>
       <body className="bg-black text-white">
-        <Navbar />
-        <main className="">
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <Navbar />
+          <main className="">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
 }
-
