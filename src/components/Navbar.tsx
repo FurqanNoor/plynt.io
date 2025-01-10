@@ -2,12 +2,14 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useSession, signOut } from 'next-auth/react'
 import { AuthModal } from './AuthModal'
-
+import { UserAvatar } from './Avatar'
 
 export default function Navbar() {
   const [showLoginModal, setShowLoginModal] = useState(false)
   const [showSignupModal, setShowSignupModal] = useState(false)
+  const { data: session } = useSession()
 
   return (
     <>
@@ -18,27 +20,35 @@ export default function Navbar() {
               plynt
             </Link>
             <nav className="flex items-center gap-4">
-              <Link
-                href="/pricing"
-                className="text-sm text-gray-400 hover:text-purple-300 transition-colors"
-              >
-                Pricing
-              </Link>
+              {!session?.user && (
+                <Link
+                  href="/pricing"
+                  className="text-sm text-gray-400 hover:text-purple-300 transition-colors"
+                >
+                  Pricing
+                </Link>
+              )}
 
-              <button
-                id="login-trigger"
-                onClick={() => setShowLoginModal(true)}
-                className="text-sm text-gray-400 hover:text-purple-300 transition-colors"
-              >
-                Login
-              </button>
-              <button
-                id="signup-trigger"
-                onClick={() => setShowSignupModal(true)}
-                className="text-sm text-gray-400 hover:text-purple-300 transition-colors"
-              >
-                Sign Up
-              </button>
+              {session?.user ? (
+                <UserAvatar user={session.user} onSignOut={() => signOut()} />
+              ) : (
+                <>
+                  <button
+                    id="login-trigger"
+                    onClick={() => setShowLoginModal(true)}
+                    className="text-sm text-gray-400 hover:text-purple-300 transition-colors"
+                  >
+                    Login
+                  </button>
+                  <button
+                    id="signup-trigger"
+                    onClick={() => setShowSignupModal(true)}
+                    className="text-sm text-gray-400 hover:text-purple-300 transition-colors"
+                  >
+                    Sign Up
+                  </button>
+                </>
+              )}
             </nav>
           </div>
         </div>

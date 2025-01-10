@@ -7,7 +7,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { X } from "lucide-react";
 import { signIn } from "next-auth/react";
 
 interface AuthModalProps {
@@ -19,26 +18,18 @@ interface AuthModalProps {
 export function AuthModal({ isOpen, onClose, mode }: AuthModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md bg-[#1a1a1a] border-gray-800">
+      <DialogContent className="sm:max-w-md bg-black border-gray-800">
         <DialogHeader>
           <DialogTitle className="text-xl font-semibold text-center text-white">
             {mode === "login" ? "Welcome Back" : "Create Account"}
           </DialogTitle>
-          <Button
-            variant="ghost"
-            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
-            onClick={onClose}
-          >
-            <X className="h-4 w-4 text-gray-400" />
-            <span className="sr-only">Close</span>
-          </Button>
         </DialogHeader>
 
         <div className="flex flex-col space-y-3 px-4 py-4">
           <Button
             onClick={() => signIn("google")}
             variant="outline"
-            className="w-full bg-transparent text-white border-gray-700 hover:bg-gray-800 hover:text-white"
+            className="w-full bg-transparent text-white border-gray-800 hover:bg-transparent hover:text-purple-300"
           >
             <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
               <path
@@ -64,7 +55,7 @@ export function AuthModal({ isOpen, onClose, mode }: AuthModalProps) {
           <Button
             onClick={() => signIn("github")}
             variant="outline"
-            className="w-full bg-transparent text-white border-gray-700 hover:bg-gray-800 hover:text-white"
+            className="w-full bg-transparent text-white border-gray-800 hover:bg-transparent hover:text-purple-300"
           >
             <svg
               className="mr-2 h-4 w-4"
@@ -86,7 +77,7 @@ export function AuthModal({ isOpen, onClose, mode }: AuthModalProps) {
                     100
                   );
                 }}
-                className="text-blue-500 hover:text-blue-400"
+                className="text-gray-400 hover:text-purple-300"
               >
                 Don&#39;t have an account? Sign up
               </button>
@@ -99,7 +90,7 @@ export function AuthModal({ isOpen, onClose, mode }: AuthModalProps) {
                     100
                   );
                 }}
-                className="text-blue-500 hover:text-blue-400"
+                className="text-gray-400 hover:text-purple-300"
               >
                 Already have an account? Login
               </button>
